@@ -4,14 +4,14 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/nathan/gametest
-BuildDirectory: /home/nathan/gametest/build
+SourceDirectory: /home/nate/personalengine
+BuildDirectory: /home/nate/personalengine/build
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: nathan-Z370-AORUS-Gaming-7
+Site: nate-Blade
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Linux-c++
@@ -36,7 +36,7 @@ ScpCommand: /usr/bin/scp
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/home/nathan/gametest"
+ConfigureCommand: "/usr/bin/cmake" "/home/nate/personalengine"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 
@@ -67,9 +67,9 @@ P4UpdateOptions:
 P4UpdateCustom: 
 
 # Generic update command
-UpdateCommand: 
+UpdateCommand: /usr/bin/git
 UpdateOptions: 
-UpdateType: 
+UpdateType: git
 
 # Compiler info
 Compiler: /usr/bin/c++
