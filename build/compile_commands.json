@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/nathan/gametest/build",
+  "command": "/usr/bin/c++   -I/usr/lib/include  -g   -o CMakeFiles/GameEngine.dir/main.cpp.o -c /home/nathan/gametest/main.cpp",
+  "file": "/home/nathan/gametest/main.cpp"
+}
+]
