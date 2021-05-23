@@ -4,6 +4,7 @@
 #include <assimp/postprocess.h>
 #include <glm/glm.hpp>
 #include <vector>
+#include <glad/glad.h>
 
 using namespace std;
 
