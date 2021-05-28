@@ -1,1 +1,1 @@
-/usr/bin/c++  -g  -rdynamic CMakeFiles/GameEngine.dir/main.cpp.o  -o GameEngine -lassimp 
+/usr/bin/c++  -g  -rdynamic CMakeFiles/GameEngine.dir/main.cpp.o CMakeFiles/GameEngine.dir/src/glad.c.o  -o GameEngine -lassimp /usr/lib/x86_64-linux-gnu/libGL.so /usr/local/lib/libglfw3.a -lrt -lm -ldl -lX11 -lpthread 

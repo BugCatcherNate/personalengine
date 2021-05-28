@@ -1,7 +1,12 @@
 [
 {
   "directory": "/home/nathan/gametest/build",
-  "command": "/usr/bin/c++   -I/usr/lib/include  -g   -o CMakeFiles/GameEngine.dir/main.cpp.o -c /home/nathan/gametest/main.cpp",
+  "command": "/usr/bin/c++   -I/usr/lib/include -I/home/nathan/gametest/include -isystem /usr/local/include  -g   -o CMakeFiles/GameEngine.dir/main.cpp.o -c /home/nathan/gametest/main.cpp",
   "file": "/home/nathan/gametest/main.cpp"
+},
+{
+  "directory": "/home/nathan/gametest/build",
+  "command": "/usr/bin/cc  -I/usr/lib/include -I/home/nathan/gametest/include -isystem /usr/local/include  -g   -o CMakeFiles/GameEngine.dir/src/glad.c.o   -c /home/nathan/gametest/src/glad.c",
+  "file": "/home/nathan/gametest/src/glad.c"
 }
 ]

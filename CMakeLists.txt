@@ -5,11 +5,14 @@ include(CTest)
 enable_testing()
 find_package(ASSIMP REQUIRED)
 find_package(glm REQUIRED)
-add_executable(GameEngine main.cpp)
+find_package(OpenGL)
+find_package(glfw3 3.3)
+add_executable(GameEngine main.cpp src/glad.c)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
 
-include_directories(${ASSIMP_INCLUDE_DIRS}  ${GLM_INCLUDE_DIRECTORIES})
-target_link_libraries(GameEngine ${ASSIMP_LIBRARIES} ${GLM_LIBRARIES})
+
+include_directories(${ASSIMP_INCLUDE_DIRS}  ${GLM_INCLUDE_DIRECTORIES} include ${OpenGL_INCLUDE_DIRS} ${GLFW_INCLUDE_DIRS}) 
+target_link_libraries(GameEngine ${ASSIMP_LIBRARIES} ${GLM_LIBRARIES} OpenGL::GL glfw)

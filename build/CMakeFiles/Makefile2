@@ -290,7 +290,7 @@ clean: CMakeFiles/NightlyUpdate.dir/clean
 CMakeFiles/GameEngine.dir/all:
 	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/depend
 	$(MAKE) -f CMakeFiles/GameEngine.dir/build.make CMakeFiles/GameEngine.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nathan/gametest/build/CMakeFiles --progress-num=1,2 "Built target GameEngine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nathan/gametest/build/CMakeFiles --progress-num=1,2,3 "Built target GameEngine"
 .PHONY : CMakeFiles/GameEngine.dir/all
 
 # Include target in all.
@@ -300,7 +300,7 @@ all: CMakeFiles/GameEngine.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/GameEngine.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nathan/gametest/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nathan/gametest/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/GameEngine.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nathan/gametest/build/CMakeFiles 0
 .PHONY : CMakeFiles/GameEngine.dir/rule
