@@ -18,6 +18,24 @@ stdint.h
 KHR/khrplatform.h
 -
 
+../include/model.h
+GLFW/glfw3.h
+-
+iostream
+-
+vector
+-
+assimp/Importer.hpp
+-
+assimp/scene.h
+-
+assimp/postprocess.h
+-
+glm/glm.hpp
+-
+string
+-
+
 /home/nathan/personalengine/main.cpp
 iostream
 -
@@ -32,6 +50,8 @@ GLFW/glfw3.h
 assimp/postprocess.h
 -
 glm/glm.hpp
+-
+model.h
 -
 vector
 -

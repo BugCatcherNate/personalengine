@@ -5,6 +5,7 @@
 #include <GLFW/glfw3.h>
 #include <assimp/postprocess.h>
 #include <glm/glm.hpp>
+#include <model.h>
 #include <vector>
 
 using namespace std;
@@ -26,55 +27,18 @@ const char *fragmentShaderSource = "#version 330 core\n"
     "out vec4 FragColor;\n"
     "void main()\n"
     "{\n"
-    "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+    "   FragColor = vec4(1.0f, 1.0f, 1.0f, 1.0f);\n"
     "}\n\0";
 
 
-struct Vertex {
 
-    glm::vec3 Positions;
-
-};
-
-vector<Vertex> vertices;
-vector<unsigned int> indices;
 
 
 int main(int, char **)
 {
 
- Assimp::Importer importer;
 
-    const aiScene* scene = importer.ReadFile("/home/nathan/personalengine/models/pyramid.obj", aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_FlipUVs | aiProcess_CalcTangentSpace);
-    // check for errors
-    if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) // if is Not Zero
-    {
-        cout << "ERROR::ASSIMP:: " << importer.GetErrorString() << endl;
-    }
-    for (int i = 0; i < scene->mMeshes[0]->mNumVertices; i++){ 
-         Vertex vertex;
-          glm::vec3 vector; // we declare a placeholder vector since assimp uses its own vector class that doesn't directly convert to glm's vec3 class so we transfer the data to this placeholder glm::vec3 first.
-            // positions
-            vector.x = scene->mMeshes[0]->mVertices[i].x;
-            vector.y = scene->mMeshes[0]->mVertices[i].y;
-            vector.z = scene->mMeshes[0]->mVertices[i].z;
-
-            vertex.Positions = vector;
-
-            cout << vector.x << ", " << vector.y << ", " << vector.z << endl;
-            vertices.push_back(vertex);
-            //cout << scene->mMeshes[0]->mVertices[i].x << endl;
-    
-    }   
-    
-      for(unsigned int i = 0; i < scene->mMeshes[0]->mNumFaces; i++)
-        {
-            aiFace face = scene->mMeshes[0]->mFaces[i];
-            // retrieve all indices of the face and store them in the indices vector
-            for(unsigned int j = 0; j < face.mNumIndices; j++)
-                indices.push_back(face.mIndices[j]);        
-        }
-    
+    Model m = Model("/home/nathan/personalengine/models/pyramid.obj"); 
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -140,18 +104,6 @@ int main(int, char **)
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
 
-    // set up vertex data (and buffer(s)) and configure vertex attributes
-    // ------------------------------------------------------------------
-    //float vertices[] = {
-    //     0.5f,  0.5f, 0.0f,  // top right
-    //     0.5f, -0.5f, 0.0f,  // bottom right
-    //    -0.5f, -0.5f, 0.0f,  // bottom left
-    //    -0.5f,  0.5f, 0.0f   // top left 
-    //};
-    //unsigned int indices[] = {  // note that we start from 0!
-    //    0, 1, 3,  // first Triangle
-    //    1, 2, 3   // second Triangle
-    //};
     unsigned int VBO, VAO, EBO;
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
@@ -160,10 +112,10 @@ int main(int, char **)
     glBindVertexArray(VAO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, vertices.size()*sizeof(Vertex), &vertices[0], GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, m.vertices.size()*sizeof(Vertex), &m.vertices[0], GL_STATIC_DRAW);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), &indices[0], GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, m.indices.size() * sizeof(unsigned int), &m.indices[0], GL_STATIC_DRAW);
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
     glEnableVertexAttribArray(0);
@@ -199,7 +151,7 @@ int main(int, char **)
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
         //glDrawArrays(GL_TRIANGLES, 0, 6);
-        glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
+        glDrawElements(GL_TRIANGLES, m.indices.size(), GL_UNSIGNED_INT, 0);
         // glBindVertexArray(0); // no need to unbind it every time 
  
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)

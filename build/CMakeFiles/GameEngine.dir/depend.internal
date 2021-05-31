@@ -8,5 +8,6 @@ CMakeFiles/GameEngine.dir/src/glad.c.o
 CMakeFiles/GameEngine.dir/main.cpp.o
  ../include/KHR/khrplatform.h
  ../include/glad/glad.h
+ ../include/model.h
  /home/nathan/personalengine/main.cpp
  /usr/local/include/GLFW/glfw3.h
