@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/nathan/gametest/src/glad.c" "/home/nathan/gametest/build/CMakeFiles/GameEngine.dir/src/glad.c.o"
+  "/home/nathan/personalengine/src/glad.c" "/home/nathan/personalengine/build/CMakeFiles/GameEngine.dir/src/glad.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -16,7 +16,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/local/include"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/nathan/gametest/main.cpp" "/home/nathan/gametest/build/CMakeFiles/GameEngine.dir/main.cpp.o"
+  "/home/nathan/personalengine/main.cpp" "/home/nathan/personalengine/build/CMakeFiles/GameEngine.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

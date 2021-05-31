@@ -18,7 +18,25 @@ stdint.h
 KHR/khrplatform.h
 -
 
-/home/nathan/gametest/main.cpp
+../include/model.h
+GLFW/glfw3.h
+-
+iostream
+-
+vector
+-
+assimp/Importer.hpp
+-
+assimp/scene.h
+-
+assimp/postprocess.h
+-
+glm/glm.hpp
+-
+string
+-
+
+/home/nathan/personalengine/main.cpp
 iostream
 -
 glad/glad.h
@@ -32,6 +50,8 @@ GLFW/glfw3.h
 assimp/postprocess.h
 -
 glm/glm.hpp
+-
+model.h
 -
 vector
 -

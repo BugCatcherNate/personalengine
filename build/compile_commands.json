@@ -1,12 +1,12 @@
 [
 {
-  "directory": "/home/nathan/gametest/build",
-  "command": "/usr/bin/c++   -I/usr/lib/include -I/home/nathan/gametest/include -isystem /usr/local/include  -g   -o CMakeFiles/GameEngine.dir/main.cpp.o -c /home/nathan/gametest/main.cpp",
-  "file": "/home/nathan/gametest/main.cpp"
+  "directory": "/home/nathan/personalengine/build",
+  "command": "/usr/bin/x86_64-linux-gnu-g++-7   -I/usr/lib/include -I/home/nathan/personalengine/include -isystem /usr/local/include  -g   -o CMakeFiles/GameEngine.dir/main.cpp.o -c /home/nathan/personalengine/main.cpp",
+  "file": "/home/nathan/personalengine/main.cpp"
 },
 {
-  "directory": "/home/nathan/gametest/build",
-  "command": "/usr/bin/cc  -I/usr/lib/include -I/home/nathan/gametest/include -isystem /usr/local/include  -g   -o CMakeFiles/GameEngine.dir/src/glad.c.o   -c /home/nathan/gametest/src/glad.c",
-  "file": "/home/nathan/gametest/src/glad.c"
+  "directory": "/home/nathan/personalengine/build",
+  "command": "/usr/bin/x86_64-linux-gnu-gcc-7  -I/usr/lib/include -I/home/nathan/personalengine/include -isystem /usr/local/include  -g   -o CMakeFiles/GameEngine.dir/src/glad.c.o   -c /home/nathan/personalengine/src/glad.c",
+  "file": "/home/nathan/personalengine/src/glad.c"
 }
 ]
