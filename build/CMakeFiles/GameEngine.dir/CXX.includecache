@@ -18,7 +18,7 @@ stdint.h
 KHR/khrplatform.h
 -
 
-/home/nathan/gametest/main.cpp
+/home/nathan/personalengine/main.cpp
 iostream
 -
 glad/glad.h

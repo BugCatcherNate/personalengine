@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/nathan/gametest
+CMAKE_SOURCE_DIR = /home/nathan/personalengine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/nathan/gametest/build
+CMAKE_BINARY_DIR = /home/nathan/personalengine/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/GameEngine.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/GameEngine.dir/flags.make
 
 CMakeFiles/GameEngine.dir/main.cpp.o: CMakeFiles/GameEngine.dir/flags.make
 CMakeFiles/GameEngine.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nathan/gametest/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/GameEngine.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GameEngine.dir/main.cpp.o -c /home/nathan/gametest/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nathan/personalengine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/GameEngine.dir/main.cpp.o"
+	/usr/bin/x86_64-linux-gnu-g++-7  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/GameEngine.dir/main.cpp.o -c /home/nathan/personalengine/main.cpp
 
 CMakeFiles/GameEngine.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GameEngine.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nathan/gametest/main.cpp > CMakeFiles/GameEngine.dir/main.cpp.i
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nathan/personalengine/main.cpp > CMakeFiles/GameEngine.dir/main.cpp.i
 
 CMakeFiles/GameEngine.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameEngine.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nathan/gametest/main.cpp -o CMakeFiles/GameEngine.dir/main.cpp.s
+	/usr/bin/x86_64-linux-gnu-g++-7 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nathan/personalengine/main.cpp -o CMakeFiles/GameEngine.dir/main.cpp.s
 
 CMakeFiles/GameEngine.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/GameEngine.dir/main.cpp.o.provides.build: CMakeFiles/GameEngine.dir/m
 
 CMakeFiles/GameEngine.dir/src/glad.c.o: CMakeFiles/GameEngine.dir/flags.make
 CMakeFiles/GameEngine.dir/src/glad.c.o: ../src/glad.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nathan/gametest/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/GameEngine.dir/src/glad.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GameEngine.dir/src/glad.c.o   -c /home/nathan/gametest/src/glad.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nathan/personalengine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/GameEngine.dir/src/glad.c.o"
+	/usr/bin/x86_64-linux-gnu-gcc-7 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/GameEngine.dir/src/glad.c.o   -c /home/nathan/personalengine/src/glad.c
 
 CMakeFiles/GameEngine.dir/src/glad.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/GameEngine.dir/src/glad.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/nathan/gametest/src/glad.c > CMakeFiles/GameEngine.dir/src/glad.c.i
+	/usr/bin/x86_64-linux-gnu-gcc-7 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/nathan/personalengine/src/glad.c > CMakeFiles/GameEngine.dir/src/glad.c.i
 
 CMakeFiles/GameEngine.dir/src/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/GameEngine.dir/src/glad.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/nathan/gametest/src/glad.c -o CMakeFiles/GameEngine.dir/src/glad.c.s
+	/usr/bin/x86_64-linux-gnu-gcc-7 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/nathan/personalengine/src/glad.c -o CMakeFiles/GameEngine.dir/src/glad.c.s
 
 CMakeFiles/GameEngine.dir/src/glad.c.o.requires:
 
@@ -122,7 +122,7 @@ GameEngine: /usr/lib/x86_64-linux-gnu/librt.so
 GameEngine: /usr/lib/x86_64-linux-gnu/libm.so
 GameEngine: /usr/lib/x86_64-linux-gnu/libX11.so
 GameEngine: CMakeFiles/GameEngine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nathan/gametest/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable GameEngine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nathan/personalengine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable GameEngine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GameEngine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -140,6 +140,6 @@ CMakeFiles/GameEngine.dir/clean:
 .PHONY : CMakeFiles/GameEngine.dir/clean
 
 CMakeFiles/GameEngine.dir/depend:
-	cd /home/nathan/gametest/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nathan/gametest /home/nathan/gametest /home/nathan/gametest/build /home/nathan/gametest/build /home/nathan/gametest/build/CMakeFiles/GameEngine.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/nathan/personalengine/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nathan/personalengine /home/nathan/personalengine /home/nathan/personalengine/build /home/nathan/personalengine/build /home/nathan/personalengine/build/CMakeFiles/GameEngine.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/GameEngine.dir/depend
 
