@@ -70,8 +70,8 @@ int main(int, char **)
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
     glEnableVertexAttribArray(0);
 
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6*sizeof(float), (void*)(3 * sizeof(float)));
-    glEnableVertexAttribArray(1);
+    //glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)sizeof(Vertex));
+    //glEnableVertexAttribArray(1);
 
 
     // note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
@@ -104,7 +104,7 @@ int main(int, char **)
         float greenValue = sin(timeValue) / 2.0f + 0.5f;
 
         ourShader.use();
-        ourShader.setVec3("ourColor", 1.0f, greenValue, 1.0f);
+        ourShader.setVec3("aColor", 0.0f, greenValue, 0.0f);
 
         glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
         //glDrawArrays(GL_TRIANGLES, 0, 6);
