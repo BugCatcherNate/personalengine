@@ -36,6 +36,20 @@ glm/glm.hpp
 string
 -
 
+../include/shader.h
+glad/glad.h
+../include/glad/glad.h
+glm/glm.hpp
+-
+string
+-
+fstream
+-
+sstream
+-
+iostream
+-
+
 /home/nathan/personalengine/main.cpp
 iostream
 -
@@ -46,6 +60,8 @@ assimp/Importer.hpp
 assimp/scene.h
 -
 GLFW/glfw3.h
+-
+shader.h
 -
 assimp/postprocess.h
 -
