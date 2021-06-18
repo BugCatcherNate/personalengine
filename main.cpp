@@ -30,6 +30,7 @@ bool firstMouse = true;
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
+glm::vec3 lightPos(1.2f, 1.0f, 30.0f);
 int main()
 {
     // glfw: initialize and configure
@@ -77,13 +78,14 @@ int main()
 
     // build and compile shaders
     // -------------------------
-    Shader ourShader("/home/nathan/personalengine/shader.vs", "/home/nathan/personalengine/shader.fs");
+    Shader lightShader("/home/nathan/personalengine/shader.vs", "/home/nathan/personalengine/shader.fs");
+    Shader ourShader("/home/nathan/personalengine/lightshader.vs", "/home/nathan/personalengine/lightshader.fs");
 
     // load models
     // -----------
     Model ourModel("/home/nathan/personalengine/resources/objects/monkey/untitled.obj");
 
-    
+    Model lightSource("/home/nathan/personalengine/resources/objects/backpack/backpack.obj");
     // draw in wireframe
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
@@ -105,21 +107,33 @@ int main()
         // ------
         glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+        lightShader.use();
+        lightShader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
+        lightShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
+        lightShader.setVec3("lightPos", lightPos);
+        lightShader.setVec3("viewPos", camera.Position); 
         // don't forget to enable shader before setting uniforms
+        glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        glm::mat4 view = camera.GetViewMatrix();
+        lightShader.setMat4("projection", projection);
+        lightShader.setMat4("view", view);
+
+        // render the loaded model
+        glm::mat4 model = glm::mat4(1.0f);
+        lightShader.setMat4("model", model);
+        lightSource.Draw(lightShader);
+
+
         ourShader.use();
 
         // view/projection transformations
-        glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        glm::mat4 view = camera.GetViewMatrix();
         ourShader.setMat4("projection", projection);
         ourShader.setMat4("view", view);
 
         // render the loaded model
-        glm::mat4 model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
-        model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));	// it's a bit too big for our scene, so scale it down
-        ourShader.setMat4("model", model);
+        glm::mat4 nmodel = glm::mat4(1.0f);
+        nmodel = glm::translate(nmodel, lightPos); // translate it down so it's at the center of the scene
+        ourShader.setMat4("model", nmodel);
         ourModel.Draw(ourShader);
 
 
