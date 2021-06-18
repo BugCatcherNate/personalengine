@@ -14,5 +14,7 @@ set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
 
 
+add_library(STB_IMAGE "stb_image.cpp")
+
 include_directories(${ASSIMP_INCLUDE_DIRS}  ${GLM_INCLUDE_DIRECTORIES} include ${OpenGL_INCLUDE_DIRS} ${GLFW_INCLUDE_DIRS}) 
-target_link_libraries(GameEngine ${ASSIMP_LIBRARIES} ${GLM_LIBRARIES} OpenGL::GL glfw)
+target_link_libraries(GameEngine ${ASSIMP_LIBRARIES} ${GLM_LIBRARIES} OpenGL::GL glfw STB_IMAGE)
