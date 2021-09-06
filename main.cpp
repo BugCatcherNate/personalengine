@@ -1,6 +1,6 @@
 #include "glad/glad.h"
 #include <GLFW/glfw3.h>
-
+#include <transform.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -81,14 +81,15 @@ int main()
 
     // load models
     // -----------
-    Model ourModel("/home/nathan/personalengine/resources/objects/monkey/untitled.obj");
+    Model ourModel("/home/nathan/personalengine/resources/objects/backpack/backpack.obj");
 
-    
     // draw in wireframe
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     // render loop
     // -----------
+    Transform t;
+    t.setPosition(glm::vec3(2.0f, 5.5f, 3.0f));
     while (!glfwWindowShouldClose(window))
     {
         // per-frame time logic
@@ -105,21 +106,22 @@ int main()
         // ------
         glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
         // don't forget to enable shader before setting uniforms
+        glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        glm::mat4 view = camera.GetViewMatrix();
+
+        // render the loaded model
+        glm::mat4 model = glm::translate(glm::mat4(1.0f), t.getPosition());
+
         ourShader.use();
 
         // view/projection transformations
-        glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        glm::mat4 view = camera.GetViewMatrix();
         ourShader.setMat4("projection", projection);
         ourShader.setMat4("view", view);
 
         // render the loaded model
-        glm::mat4 model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
-        model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));	// it's a bit too big for our scene, so scale it down
-        ourShader.setMat4("model", model);
+        glm::mat4 nmodel = glm::rotate(model, 1.2f, glm::vec3(0.0f, 0.0f, 1.0f));
+        ourShader.setMat4("model", glm::translate(nmodel, t.getPosition()));
         ourModel.Draw(ourShader);
 
 
